@@ -1,0 +1,78 @@
+body {
+	background-color: #0a0a0a;
+	color: #ffffff;
+	font-family: "Alan Sans", sans-serif;
+	font-size: 20px;
+}
+#container {
+	width: 1000px;
+	margin: auto;
+	padding: 10px;
+}
+.rectangle {
+	width: 940px;
+	margin: 20px;
+	margin-bottom: 50px;
+}
+.square {
+	width: 500px;
+	float: center;
+	margin: auto;
+}
+#logo {
+	text-align: center;
+    font-family: "Alan Sans", sans-serif;
+    font-size: 60px;
+	width: 100%;
+}
+.tile1 {
+	margin: 10px;
+	width: 230px;
+	height: 142px;
+	background-color: #6a1b9a;
+	float: left;
+	text-align: center;
+}
+.tile1:hover {
+	background-color: #5a0b9a;
+}
+.tile2 {
+	margin: 10px;
+	width: 230px;
+	height: 142px;
+	background-color: #f57c00;
+	float: left;
+	text-align: center;
+}
+.tile2:hover {
+	background-color: #e56c00;
+}
+.tile3 {
+	margin: 10px;
+	width: 480px;
+	height: 142px;
+	background-color: #1a73e8;
+	float: left;
+	text-align: center;
+}
+.tile3:hover {
+	background-color: #0a63c8;
+}
+a.tilelink {
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	width: 230px;
+	height: 142px;
+}
+a.tilelink2 {
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	width: 500;
+	height: 142px;
+}
+a.link {
+	color: #ffffff;
+	text-decoration: none;
+}
