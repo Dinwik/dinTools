@@ -10,9 +10,11 @@ function textGenerate() {
 	reset();
 	const input = document.getElementById("textInput");
 	const output = document.getElementById("Output");
+	const textSpacing = document.getElementById("textSpacing");
+	const spacing = textSpacing.value;
 	const text = input.value;
 	for (let i = 0; i < text.length; i++) {
-		block(13, 0, i, 0, 0, text.charCodeAt(i));
+		block(13, 0, i * spacing, 0, 0, text.charCodeAt(i));
 	}
 	end();
 	output.textContent = result;
@@ -55,4 +57,29 @@ function end() {
 
 function clipboard() {
 	navigator.clipboard.writeText(result);
+}
+
+function sphereGenerate() {
+	reset();
+	const input = document.getElementById("sphereRadius");
+	const output = document.getElementById("Output");
+	const radius = input.value;
+	for (let x = 0; x <= radius; x++) {
+		for (let y = 0; y <= radius; y++) {
+			for (let z = 0; z <= radius; z++) {
+				if (Math.floor(Math.sqrt(x*x + y*y + z*z)) == radius) {
+					block(14, 0, x, y, z, '-');
+					block(14, 0, -x, y, z, '-');
+					block(14, 0, x, -y, z, '-');
+					block(14, 0, -x, -y, z, '-');
+					block(14, 0, x, y, -z, '-');
+					block(14, 0, -x, y, -z, '-');
+					block(14, 0, x, -y, -z, '-');
+					block(14, 0, -x, -y, -z, '-');
+				}
+			}
+		}
+	}
+	end();
+	output.textContent = result;
 }
