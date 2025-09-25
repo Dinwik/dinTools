@@ -1,0 +1,33 @@
+body {
+	background: #0a0a0a;
+}
+.links {
+	width: 10em;
+	text-align: center;
+	color: #ffffff;
+	background: #151515;
+	padding: 15px;
+	line-height: 2em;
+	font-size: 2em;
+	float: left;
+	margin: 15px;
+}
+a {
+	color: #ffffff
+}
+.generator {
+	float: left;
+	width: 1000px;
+	background: #202020;
+	text-align: center;
+	color: #ffffff;
+	margin: 15px;
+}
+.generator h1 {
+	padding: 25px;
+	font-size: 2em;
+}
+.generator h2 {
+	padding: 5px;
+	font-size: 1.25em;
+}
