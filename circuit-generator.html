@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible content="ie=edge">
-	<title>Sphere generator</title>
+	<title>Circuit generator</title>
 	<link rel="stylesheet" href="style.css">
 	<script src="script.js"></script>
 </head>
@@ -12,11 +12,16 @@
 		<a href="index.html">Go back</a>
 	</div>
 	<div class="generator">
-		<h1>Sphere generator</h1>
+		<h1>Circuit generator</h1>
 		<h2>
-		This tool lets you generate a sphere in circuit maker 2<br><br>
-		Radius: <input type="number" id="sphereRadius"></input><br><br>
-		<button onClick="sphereGenerate()">Click here to generate</button><br><br>
+		This tool allows you to generate any circuit in circuit maker 2<br><br>
+		Text: <select id="circuitType">
+			<option value="adder4bit">4 bit adder</option>
+			<option value="adder8bit">8 bit adder</option>
+			<option value="adder16bit">16 bit adder</option>
+		</select><br>
+		<br><br>
+		<button onClick="circuitGenerate()">Click here to generate</button><br><br>
 		Circuit maker 2 string: (paste in the register)<br><br>
 		<textarea id="Output" readonly="true"></textarea><br>
 		<button onClick="clipboard()">Click here to copy</button>

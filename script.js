@@ -5,6 +5,8 @@ let x = [];
 let y = [];
 let z = [];
 let special = [];
+let cstart = [];
+let cend = [];
 
 function textGenerate() {
 	reset();
@@ -28,6 +30,8 @@ function reset() {
 	y = [];
 	z = [];
 	special = [];
+	cstart = [];
+	cend = [];
 	}
 
 function block(blockId, blockState, blockX, blockY, blockZ, blockSpecial) {
@@ -52,7 +56,14 @@ function end() {
 		result = result + ';';
 	}
 	result = result.slice(0, -1);
-	result = result + '???'
+	result = result + '?'
+	for (let i = 0; i < cstart.length; i++) {
+		result = result + cstart[i] + ',';
+		result = result + cend[i] + ';';
+	}
+	result = result.slice(0, -1);
+	result = result + '?'
+	result = result + '?'
 }
 
 function clipboard() {
@@ -79,6 +90,66 @@ function sphereGenerate() {
 				}
 			}
 		}
+	}
+	end();
+	output.textContent = result;
+}
+
+function connect(start, end) {
+	cstart.push(start);
+	cend.push(end);
+}
+
+function adder(bits) {
+	reset();
+	for (let i = 0; i < bits; i++) {
+		block(5, 0, 0, i, 0, '-');
+		block(5, 0, 2, i, 0, '-');
+		block(3, 0, 0, i, 2, '-');
+		block(3, 0, 2, i, 2, '-');
+		block(3, 0, 0, i, 3, '-');
+		block(1, 0, 2, i, 3, '-');
+		block(3, 0, 0, i, 4, '-');
+		block(1, 0, 2, i, 4, '-');
+		block(2, 0, 1, i, 2, '-');
+		block(1, 0, 1, i, 3, '-');
+		block(6, 0, 1, i, 4, '-');
+		connect(11*i+1, 11*i+3);
+		connect(11*i+2, 11*i+4);
+		connect(11*i+3, 11*i+5);
+		connect(11*i+4, 11*i+6);
+		connect(11*i+3, 11*i+6);
+		connect(11*i+4, 11*i+5);
+		connect(11*i+5, 11*i+7);
+		connect(11*i+5, 11*i+8);
+		connect(11*i+6, 11*i+9);
+		connect(11*i+8, 11*i+9);
+		connect(11*i+7, 11*i+11);
+		if (i < bits-1) {
+			connect(11*i+9, 11*i+21);
+		}
+		connect(11*i+10, 11*i+7);
+		connect(11*i+10, 11*i+8);
+	}
+	block(5, 0, 4, 0, 0, '-');
+	block(6, 0, 1, bits, 4, '-');
+	connect(11*bits-1, 11*bits+2);
+	connect(11*bits+1, 10);
+}
+
+function circuitGenerate() {
+	reset();
+	const input = document.getElementById("circuitType");
+	const output = document.getElementById("Output");
+	const type = input.value;
+	if (type == "adder4bit") {
+		adder(4);
+	}
+	if (type == "adder8bit") {
+		adder(8);
+	}
+	if (type == "adder16bit") {
+		adder(16);
 	}
 	end();
 	output.textContent = result;
