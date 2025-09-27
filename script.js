@@ -15,8 +15,25 @@ function textGenerate() {
 	const textSpacing = document.getElementById("textSpacing");
 	const spacing = textSpacing.value;
 	const text = input.value;
+	let line = 0;
+	let col = 0;
 	for (let i = 0; i < text.length; i++) {
-		block(13, 0, i * spacing, 0, 0, text.charCodeAt(i));
+		let code = text.charCodeAt(i);
+		switch(code) {
+			case 9:
+				col += 4;
+				break;
+			case 10:
+				line++;
+				col = 0;
+				break;
+			case 160:
+				col++;
+				break;
+			default:
+				block(13, 0, spacing*col, 0, line, code)
+				col++
+		}
 	}
 	end();
 	output.textContent = result;
