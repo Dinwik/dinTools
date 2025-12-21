@@ -1,33 +1,50 @@
-body {
-	background: #0a0a0a;
+.przycisk {
+    background-color: #04AA6D;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    width: 50%;
+    margin: 15px auto;
+    padding: 10px 0;
+    display: block;
 }
-.links {
-	width: 10em;
-	text-align: center;
-	color: #ffffff;
-	background: #151515;
-	padding: 15px;
-	line-height: 2em;
-	font-size: 2em;
-	float: left;
-	margin: 15px;
+
+html, body {
+    color: #ffffff;
+    background-color: #595260;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    overflow: hidden;
 }
-a {
-	color: #ffffff
+
+.linkBox {
+    background-color: #2C2E43;
+    width: 20%;
+    margin: 2.5%;
+    text-align: center;
+    padding: 15px 0;
+    float: left;
 }
+
 .generator {
-	float: left;
-	width: 1000px;
-	background: #202020;
-	text-align: center;
-	color: #ffffff;
-	margin: 15px;
+    background-color: #2C2E43;
+    width: 35%;
+    margin: 2.5% auto;
+    float: left; /* DON'T TOUCH IT */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.17em;
 }
-.generator h1 {
-	padding: 25px;
-	font-size: 2em;
-}
-.generator h2 {
-	padding: 5px;
-	font-size: 1.25em;
+
+.funcButton {
+  background-color: #04AA6D;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
