@@ -12,7 +12,7 @@
     <script>
         function generateText() {
             const text = document.getElementById("textInput").value;
-            const spacing = document.getElementById("spacing").value;
+            const spacing = Number(document.getElementById("spacing").value);
             setup();
             let col = 0;
             let line = 0;
