@@ -38,13 +38,3 @@ html, body {
     padding: 15px 0;
     font-size: 1.17em;
 }
-
-.funcButton {
-  background-color: #04AA6D;
-  padding: 20px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
