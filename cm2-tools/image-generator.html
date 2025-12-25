@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CM2 Image Generator</title>
+	<link rel="stylesheet" href="../style.css">
+    <script src="cm2.js"></script>
+    <style>
+
+    </style>
+    
+    <script>
+		function generateImage() {
+			const imageInput = document.getElementById("imageInput");
+			const res = Math.floor(Number(document.getElementById("resolution").value));
+			const scale = Number(document.getElementById("scale").value);
+			const file = imageInput.files[0];
+			if (!file) {
+				alert("Please insert an image");
+				return;
+			}
+			const img = new Image();
+			img.src = URL.createObjectURL(file);
+			
+			img.onload = () => {
+				const width = img.width;
+				const height = img.height;
+				const canvas = document.createElement("canvas");
+				const ctx = canvas.getContext("2d");
+				canvas.width = width;
+				canvas.height = height;
+				ctx.drawImage(img, 0, 0);
+				setup();
+				for (let y = 0; y < Math.floor(height / res); y++) {
+					for (let x = 0; x < Math.floor(width / res); x++) {
+						const pixel = ctx.getImageData(x*res, y*res, 1, 1).data;
+						addBlock(14, 0, x*scale, scale*height/res - y*scale, (x+y)*0.001, pixel[0] +"+"+ pixel[1] +"+"+ pixel[2] +"+2+0");
+					}
+				}
+				copy(compileData());
+			};
+		}
+    </script>
+</head>
+<body>
+	<div class="linkBox">
+        <a href="cm2hub.html">
+        <div class="przycisk">
+            Return
+        </div></a>
+    </div>
+    
+    <div class="generator">
+        Drop image here: <br><br>
+        <input type="file" id="imageInput" accept="image/*"><br><br>
+        Skipped pixels<br>(higher number = lower resolution): <br><br>
+        <input type="number" id="resolution" name="resolution" step="1" value="8" min="1" max="32"></input><br><br>
+        Scale<br>(how big should each pixel be, in studs): <br><br>
+        <input type="number" id="scale" name="scale" step="0.01" value="0.1" min="0" max="1"></input><br><br>
+        <div class="przycisk" onClick="generateImage()">
+            Click to copy CM2 string. 
+        </div>
+    </div>
+</body>
+</html>

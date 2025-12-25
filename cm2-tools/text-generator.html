@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CM2 Text Generator</title>
+	<link rel="stylesheet" href="../style.css">
+    <script src="cm2.js"></script>
+    <style>
+
+    </style>
+    
+    <script>
+        function generateText() {
+            const text = document.getElementById("textInput").value;
+            const spacing = Number(document.getElementById("spacing").value);
+            setup();
+            let col = 0;
+            let line = 0;
+            for (let i = 0; i < text.length; i++) {
+                let charCode = text.charCodeAt(i);
+                switch(charCode) {
+                    case 9:
+                        col += 4*spacing;
+                        break;
+                    case 10:
+                        col = 0;
+                        line++;
+                        break;
+                    default:
+                        addBlock(13, 0, col, 0, line, charCode);
+                        col += spacing;
+                }
+            }
+            copy(compileData());
+        }
+    </script>
+</head>
+<body>
+	<div class="linkBox">
+        <a href="cm2hub.html">
+        <div class="przycisk">
+            Return
+        </div></a>
+    </div>
+    
+    <div class="generator">
+        Enter text here: <br><br>
+        <textarea id="textInput" name="textInput" rows="4" cols="50"></textarea><br><br>
+        spacing: <br><br>
+        <input type="number" id="spacing" name="spacing" step="any" value="0.45" min="0" max="2"></input><br><br>
+        <div class="przycisk" onClick="generateText()">
+            Click to copy CM2 string. 
+        </div>
+    </div>
+</body>
+</html>

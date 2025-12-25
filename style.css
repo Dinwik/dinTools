@@ -38,3 +38,7 @@ html, body {
     padding: 15px 0;
     font-size: 1.17em;
 }
+
+a {
+    text-decoration: none;
+}
