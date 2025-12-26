@@ -27,7 +27,6 @@ function connect(start, end) {
 function compileData() {
     let data = "";
     if (blocks.length > 0) {
-    connect(1, 1);
     for (let i = 0; i < blocks.length; i++) {
             data += blocks[i].type + ",";
             data += blocks[i].state + ",";
@@ -54,5 +53,4 @@ function compileData() {
 
 function copy(data) {
     navigator.clipboard.writeText(data);
-
 }

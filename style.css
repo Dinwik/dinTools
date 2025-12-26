@@ -33,7 +33,6 @@ html, body {
     background-color: #2C2E43;
     width: 35%;
     margin: 2.5% auto;
-    float: left; /* DON'T TOUCH IT */
     text-align: center;
     padding: 15px 0;
     font-size: 1.17em;
