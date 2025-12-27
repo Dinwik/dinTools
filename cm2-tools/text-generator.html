@@ -5,6 +5,7 @@
 	<title>CM2 Text Generator</title>
 	<link rel="stylesheet" href="../style.css">
     <script src="cm2.js"></script>
+    
     <style>
 
     </style>
@@ -33,6 +34,8 @@
             }
             copy(compileData());
         }
+        
+        
     </script>
 </head>
 <body>
@@ -45,12 +48,13 @@
     
     <div class="generator">
         Enter text here: <br><br>
-        <textarea id="textInput" name="textInput" rows="4" cols="50"></textarea><br><br>
+        <textarea id="textInput" rows="15" cols="50"></textarea><br><br>
         spacing: <br><br>
-        <input type="number" id="spacing" name="spacing" step="any" value="0.45" min="0" max="2"></input><br><br>
+        <input type="number" id="spacing" name="spacing" step="0.05" value="0.45" min="0" max="1"></input><br><br>
         <div class="przycisk" onClick="generateText()">
             Click to copy CM2 string. 
         </div>
     </div>
+    <script src="../tabfix.js"></script>
 </body>
 </html>

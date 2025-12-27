@@ -27,23 +27,15 @@ function connect(start, end) {
 function compileData() {
     let data = "";
     if (blocks.length > 0) {
-    for (let i = 0; i < blocks.length; i++) {
-            data += blocks[i].type + ",";
-            data += blocks[i].state + ",";
-            data += blocks[i].x + ",";
-            data += blocks[i].y + ",";
-            data += blocks[i].z + ",";
-            data += blocks[i].data;
-            data += ";";
+        for (const block of blocks) {
+            data += `${block.type},${block.state},${block.x},${block.y},${block.z},${block.data};`;
         }
     data = data.slice(0, -1);
     }
     data += "?";
     if (connections.length > 0) {
-        for (let i = 0; i < connections.length; i++) {
-            data += connections[i].start + ",";
-            data += connections[i].end;
-            data += ";";
+        for (const connection of connections) {
+            data += `${connection.start},${connection.end};`;
         }
     data = data.slice(0, -1);
     }
