@@ -1,5 +1,6 @@
 let blocks;
 let connections;
+let data = "";
 
 function setup() {
     blocks = [];
@@ -24,11 +25,29 @@ function connect(start, end) {
     });
 }
 
+function addBlockData(toadd, comma=true) {
+    if (toadd == 0) {
+        if (comma) {
+            data += ",";
+        }
+    } else {
+        data += toadd;
+        if (comma) {
+            data += ",";
+        }
+    }
+}
+
 function compileData() {
-    let data = "";
     if (blocks.length > 0) {
         for (const block of blocks) {
-            data += `${block.type},${block.state},${block.x},${block.y},${block.z},${block.data};`;
+            addBlockData(block.type);
+            addBlockData(block.state);
+            addBlockData(block.x);
+            addBlockData(block.y);
+            addBlockData(block.z);
+            addBlockData(block.type, false);
+            data += ";";
         }
     data = data.slice(0, -1);
     }
@@ -45,4 +64,5 @@ function compileData() {
 
 function copy(data) {
     navigator.clipboard.writeText(data);
+
 }
