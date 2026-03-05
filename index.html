@@ -4,17 +4,18 @@
 	<meta charset="UTF-8">
 	<title>CM2 toolbox</title>
 	<link rel="stylesheet" href="style.css">
-    <style>
-
-    </style>
+    <script src="button.js"></script> 
 </head>
 <body>
 	<div class="linkBox" style="margin: 2.5% auto; float: none;">
-        <a href="cm2-tools/cm2hub.html">
-        <div class="przycisk">
+        <div class="przycisk" onClick="openLink('cm2-tools/cm2hub.html')">
             Circuit Maker 2 Tools
         </div>
-        </a>
+            <div class="przycisk disabled">
+                <!-- onClick="openLink('terrain-generator-playground/terrain-generator-playground.html')" -->
+            Terrain Generator Playground
+            </div>
+        </div>
     </div>
 </body>
 </html>

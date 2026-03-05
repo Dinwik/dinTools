@@ -5,13 +5,13 @@
     text-decoration: none;
     font-size: 20px;
     cursor: pointer;
-    width: 50%;
+    width: 65%;
     margin: 15px auto;
     padding: 10px 0;
     display: block;
     border-radius: 15px;
     transition: 0.1s transform ease-in;
-	min-height: 25px;
+	min-height: 30px;
 }
 
 .przycisk:hover {
@@ -26,13 +26,20 @@
     background-color: #029660;
 }
 
+.przycisk.disabled {
+    background-color: #888888;
+    cursor: not-allowed;
+    transform: none;
+}
+
 textarea {
-    background-color: #aaaaaa;
+    background: linear-gradient(135deg, #f6d365, #fda085);
     border-radius: 15px;
     padding: 15px;
     max-width: 80%;
     font-size: 1.25em;
-	outline: none;
+    outline: none;
+    color: #222;
 }
 
 html, body {
@@ -73,4 +80,12 @@ body {
 
 a {
     text-decoration: none;
+}
+
+input {
+    border-radius: 5px;
+    background-color: #1e1e2f;
+    border: none;
+    padding: 5px;
+    color: #ffffff;
 }

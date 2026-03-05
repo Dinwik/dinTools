@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CM2 Circuit Generator</title>
+	<link rel="stylesheet" href="../style.css">
+    <script src="cm2.js"></script> 
+    <script>
+        function generateDecoder(bits) {
+            for (let x = 0; x < bits; x++) {
+                addBlock(15, 0, x, 0, 0);
+                addBlock(0, 0, x, 0, 1);
+                addBlock(2, 0, x, 0, 2);
+
+                connect(x*3 + 1, x*3 + 2);
+                connect(x*3 + 1, x*3 + 3);
+            }
+
+            for (let z = 0; z < 2 ** bits; z++) {
+                addBlock(1, 0, 0, 0, z+3);
+                let dec = z;
+                for (let i = 0; i < bits; i++) {
+                    if (dec % 2 == 0)
+                        connect(i*3 + 2, "last");
+                    else
+                        connect(i*3 + 3, "last");
+                    dec = Math.floor(dec / 2);
+                }
+            }
+
+        }
+
+        function generateCircuit() {
+			const type = document.getElementById("circuit").value;
+			const bits = document.getElementById("bits").value;
+
+			setup();
+
+            if (type == "decoder") {
+                generateDecoder(bits);
+            }
+
+            copy(compileData());
+		}
+    </script>
+</head>
+<body>
+	<div class="linkBox">
+        <div class="przycisk" onClick="openLink('cm2hub.html')">
+            Return
+        </div>
+    </div>
+    
+    <div class="generator">
+        Choose Circuit Type <br><br>
+        <select name="circuit" id="circuit">
+			<option value="decoder">Decoder</option>
+		</select><br><br>
+		
+        Bits: <br><br>
+        <input type="number" id="bits" name="bits" step="1" value="4" min="2" max="10"></input><br><br>
+		
+        <div class="przycisk" onClick="generateCircuit()">
+            Click to copy CM2 string. 
+        </div>
+    </div>
+    <script src="../button.js"></script>
+</body>
+</html>

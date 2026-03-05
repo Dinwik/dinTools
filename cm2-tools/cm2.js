@@ -18,6 +18,10 @@ function addBlock(type, state, posX, posY, posZ, data = "") {
 }
 
 function connect(start, end) {
+    if (start == "last")
+        start = blocks.length;
+    if (end == "last")
+        end = blocks.length;
     connections.push({
         start: String(start),
         end: String(end)
@@ -27,16 +31,14 @@ function connect(start, end) {
 function compileData() {
     let data = "";
     if (blocks.length > 0) {
-        for (const block of blocks) {
+        for (const block of blocks)
             data += `${block.type},${block.state},${block.x},${block.y},${block.z},${block.data};`;
-        }
     data = data.slice(0, -1);
     }
     data += "?";
     if (connections.length > 0) {
-        for (const connection of connections) {
+        for (const connection of connections)
             data += `${connection.start},${connection.end};`;
-        }
     data = data.slice(0, -1);
     }
     data += "??";
