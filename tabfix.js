@@ -15,7 +15,7 @@ textareaElement.addEventListener("keydown", (event) => {
 
             textareaElement.value = newValue;
 
-            const newCaretPosition = startCaretPosition + 4;
+            const newCaretPosition = startCaretPosition + 1;
             textareaElement.selectionStart = newCaretPosition;
             textareaElement.selectionEnd = newCaretPosition;
         }

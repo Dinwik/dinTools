@@ -4,7 +4,33 @@
 	<meta charset="UTF-8">
 	<title>Terrain Generator Playground</title>
 	<link rel="stylesheet" href="../style.css">
-    
+    <style>
+        #output {
+            border-radius: 5px;
+        }
+
+        #code {
+            background: #2e3440;
+            color: #d8dee9;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 1em;
+            line-height: 1.5;
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 80%;
+            outline: none;
+            overflow: auto;
+            white-space: pre-wrap;
+        }
+
+        html, body {
+            overflow: auto;
+        }
+
+        .linkBox {
+            float: none;
+        }
+    </style>
 </head>
 <body>
 	<div class="linkBox">
@@ -12,16 +38,38 @@
             Return
         </div>
     </div>
-    
-    <div class="generator">
+
+    <div class="generator" style="margin: 2.5%; width: 60%; float: left;">
+
+        <p style="color: #ffff00"><b>This generator is not ready yet,<br>more features will be added soon</b></p>
+
+        <textarea id="code" rows="25" cols="80" spellcheck="false">#initalizing variables
+var height 
+var local
+var continentalness
+
+#setting 'local' variable to noise with amplitude = 0.25 and frequency = 8
+noise local = 0.25 8
+#similar with continentalness
+noise continentalness = 0.75 32
+
+#adding 'local' and 'continentalness' variables
+math height = local + continentalness
+
+#final height is value of 'height' variable
+return height</textarea><br><br>
+
         <div class="przycisk" onClick="generate()">
             Generate
         </div>
-
-		<canvas id="output" width="256" height="256"></canvas>
-		
     </div>
+
+    <div class="generator" style="margin: 2.5%; float: left; width: 30%;">
+        <canvas id="output" width="512" height="512"></canvas>
+    </div>
+
 	<script src="../button.js"></script>
+    <script src="math.js"></script>
 	<script src="interpreter.js"></script>
 </body>
 </html>
