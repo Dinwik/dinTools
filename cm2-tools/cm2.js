@@ -1,8 +1,18 @@
 let blocks;
 let connections;
 
-if (confirm("Warning: this website is being moved, and will be removed soon. Go to new website?"))
-    window.location.href = "https://dinwik.github.io/Portfolio/projects/CM2-Tools/";
+const key = 'last_time_asked';
+const current_date = new Date().toISOString().split('T')[0];
+const date_saved = localStorage.getItem(key);
+
+if (date_saved !== current_date) {
+    
+    localStorage.setItem(key, current_date);
+
+    if (confirm("Warning: this website is being moved, and will be removed soon. Go to new website?")) {
+        window.location.href = "https://dinwik.github.io/Portfolio/projects/CM2-Tools/";
+    }
+}
 
 function setup() {
     blocks = [];
