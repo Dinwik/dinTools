@@ -1,6 +1,9 @@
 let blocks;
 let connections;
 
+if (confirm("Warning: this website is being moved, and will be removed soon. Go to new website?"))
+    window.location.href = "https://dinwik.github.io/Portfolio/projects/CM2-Tools/";
+
 function setup() {
     blocks = [];
     connections = [];
